@@ -21,9 +21,11 @@ PScan is a powerful, cross-platform command-line port scanner written in Python.
 
 ## Installation
 
+### Windows Installation
+
 1. Clone the repository:
 ```bash
-git clone https://github.com/Binayak03/PScan-.git
+git clone https://github.com/Binayak03/PScan.git
 cd PScan
 ```
 
@@ -32,48 +34,109 @@ cd PScan
 pip install rich ipaddress
 ```
 
+### Linux Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Binayak03/PScan.git
+cd PScan
+```
+
+2. Install virtual environment (if not already installed):
+```bash
+sudo apt install python3-venv
+```
+
+3. Create and activate a virtual environment:
+```bash
+python3 -m venv pscan_env
+source pscan_env/bin/activate
+```
+
+4. Install required dependencies:
+```bash
+pip install rich ipaddress
+```
+
+5. Make the script executable:
+```bash
+chmod +x pscan.py
+```
+
 ## Usage
 
 ### Basic Commands
 
 1. Scan default ports (1-1000):
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1
+
+# Linux (with virtual environment activated)
+./pscan.py -t 192.168.1.1
 ```
 
 2. Scan specific ports:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1 -p 22,80,443,8080
+
+# Linux
+./pscan.py -t 192.168.1.1 -p 22,80,443,8080
 ```
 
 3. Scan port range:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1 -p 1-1000
+
+# Linux
+./pscan.py -t 192.168.1.1 -p 1-1000
 ```
 
 4. Fast scan of common ports:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1 -f
+
+# Linux
+./pscan.py -t 192.168.1.1 -f
 ```
 
 5. Scan multiple IPs with IP range:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1-192.168.1.10 -p 22,80,443
+
+# Linux
+./pscan.py -t 192.168.1.1-192.168.1.10 -p 22,80,443
 ```
 
 6. Scan network with CIDR notation:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.0/24 -p 22,80,443 -f
+
+# Linux
+./pscan.py -t 192.168.1.0/24 -p 22,80,443 -f
 ```
 
 7. Verbose output with detailed information:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1 -p 22,80,443 -v
+
+# Linux
+./pscan.py -t 192.168.1.1 -p 22,80,443 -v
 ```
 
 8. Adjust thread count for faster scanning:
 ```bash
+# Windows
 python pscan.py -t 192.168.1.1 -p 1-1000 -T 200
+
+# Linux
+./pscan.py -t 192.168.1.1 -p 1-1000 -T 200
 ```
 
 ### Command Line Options
