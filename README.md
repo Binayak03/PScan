@@ -23,7 +23,7 @@ PScan is a powerful, cross-platform command-line port scanner written in Python.
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Binayak03/PScan-.git
 cd PScan
 ```
 
@@ -136,8 +136,8 @@ This tool is intended for legitimate network administration and security testing
 
 ## License
 
-[Add your license information here]
+MIT License
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. 
+Contributions are welcome! Please feel free to submit a Pull Request.
