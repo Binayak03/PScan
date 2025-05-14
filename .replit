@@ -1,0 +1,39 @@
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "PScan"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "run_pscan"
+
+[[workflows.workflow]]
+name = "PScan"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python pscan.py -t 127.0.0.1 -f -v"
+
+[[workflows.workflow]]
+name = "run_pscan"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "chmod +x pscan.py && pip install rich ipaddress && python pscan.py -t 127.0.0.1 -p 22,80,443,3000,8000,8080 -T 50"
+
+[deployment]
+run = ["sh", "-c", "python pscan.py -t 127.0.0.1 -f -v"]
